@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Hidden Truth - Access Protocol</title>
+    <style>
+        /* Basic Reset & Body Styling */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #1a1a1a; /* Dark background */
+            color: #e0e0e0; /* Light text for contrast */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* Full viewport height */
+            text-align: center;
+            flex-direction: column;
+        }
+
+        /* Container for the form */
+        .container {
+            background-color: #282828; /* Slightly lighter dark background for the container */
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); /* Soft shadow */
+            max-width: 450px;
+            width: 90%; /* Responsive width */
+            border: 1px solid #3a3a3a; /* Subtle border */
+        }
+
+        h2 {
+            color: #66ccff; /* A techy blue for the title */
+            margin-bottom: 25px;
+            font-size: 1.8em;
+            letter-spacing: 0.5px;
+        }
+
+        p {
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        /* Input fields styling */
+        input[type="text"],
+        input[type="password"] {
+            width: calc(100% - 24px); /* Full width minus padding */
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #4a4a4a; /* Darker border */
+            border-radius: 6px;
+            background-color: #3a3a3a; /* Dark input background */
+            color: #e0e0e0; /* Light text */
+            font-size: 1em;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        input[type="text"]:focus,
+        input[type="password"]:focus {
+            border-color: #66ccff; /* Highlight on focus */
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(102, 204, 255, 0.3); /* Subtle glow */
+        }
+
+        /* Button styling */
+        button {
+            background-color: #007bff; /* Primary button color */
+            color: white;
+            padding: 14px 25px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1.1em;
+            margin-top: 20px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 2px 8px rgba(0, 123, 255, 0.3);
+        }
+
+        button:hover {
+            background-color: #0056b3; /* Darker on hover */
+            transform: translateY(-2px); /* Slight lift */
+        }
+
+        button:active {
+            transform: translateY(0); /* Press effect */
+        }
+
+        /* Message display area */
+        #message {
+            margin-top: 25px;
+            font-weight: bold;
+            font-size: 1.1em;
+            min-height: 25px; /* Prevent layout shift when message appears */
+        }
+
+        /* Styling for success/error messages */
+        .success {
+            color: lightgreen;
+        }
+
+        .error {
+            color: red;
+        }
+
+        /* Styling for the download link */
+        #downloadSection {
+            margin-top: 30px;
+            text-align: center;
+            opacity: 0; /* Initially hidden */
+            transition: opacity 0.5s ease-in;
+        }
+
+        #downloadSection.show {
+            opacity: 1; /* Show on success */
+        }
+
+        #downloadSection a {
+            color: #66ccff;
+            text-decoration: none;
+            font-size: 1.2em;
+            font-weight: bold;
+            display: inline-block;
+            padding: 10px 15px;
+            border: 2px solid #66ccff;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        #downloadSection a:hover {
+            background-color: #66ccff;
+            color: #1a1a1a;
+        }
+
+        /* Optional: Add a subtle animation for the form */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .container {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Initiate Protocol: Access Hidden Truth</h2>
+        <p>What did they say?</p>
+        <input type="text" id="questionAnswer" placeholder="Your Answer Here">
+        <p>Uncover the ancient key whispered from the 'gram (Instagram):</p>
+        <input type="password" id="passkey" placeholder="The Passkey">
+        <button onclick="checkAccess()">Unlock Protocol</button>
+        <p id="message"></p>
+        
+        <div id="downloadSection"></div>
+    </div>
+
+    <script>
+        function checkAccess() {
+            // Passkey from your Instagram post
+            const correctPasskey = "19-62"; 
+            // Answer to "What did they say?"
+            const correctAnswer = "HA-RA"; 
+
+            // >>>>>>>>>>>>>>>>>> IMPORTANT: YOU MUST UPDATE THESE TWO LINES <<<<<<<<<<<<<<<<<<<<
+            // Replace '<YOUR_ACTUAL_PICTURE_URL_HERE>' with the direct public URL of your uploaded picture.
+            // Example: "https://yourusername.github.io/yourrepo/your_image_name.jpg"
+            const pictureToDownloadURL = "<YOUR_ACTUAL_PICTURE_URL_HERE>"; 
+            // Replace '<YOUR_PICTURE_FILENAME_HERE.jpg>' with the name you want the file to have when downloaded.
+            const pictureFileName = "<YOUR_PICTURE_FILENAME_HERE.jpg>"; 
+            // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> END IMPORTANT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+            // Get elements
+            const userAnswerInput = document.getElementById("questionAnswer");
+            const userPasskeyInput = document.getElementById("passkey");
+            const messageElement = document.getElementById("message");
+            const downloadSection = document.getElementById("downloadSection");
+
+            // Trim whitespace and convert to uppercase for robust comparison
+            const userAnswer = userAnswerInput.value.toUpperCase().trim();
+            const userPasskey = userPasskeyInput.value.trim();
+
+            if (userAnswer === correctAnswer && userPasskey === correctPasskey) {
+                messageElement.className = "success";
+                messageElement.innerText = "Access Granted! The path unfolds. Proceed, Seeker.";
+                
+                // Clear inputs for next attempt or simply for cleanliness
+                userAnswerInput.value = "";
+                userPasskeyInput.value = "";
+
+                // Create the download link and add it to the page
+                downloadSection.innerHTML = `
+                    <p>Your journey has led you to the hidden file:</p>
+                    <a href="${pictureToDownloadURL}" download="${pictureFileName}">Download Your Discovery!</a>
+                `;
+                downloadSection.classList.add("show"); // Make the section visible
+            } else {
+                messageElement.className = "error";
+                messageElement.innerText = "Access Denied. The codes do not align. Re-evaluate your wisdom.";
+                downloadSection.classList.remove("show"); // Hide download section on error
+                downloadSection.innerHTML = ""; // Clear any previous download link
+            }
+        }
+    </script>
+</body>
+</html>
